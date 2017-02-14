@@ -16,12 +16,12 @@
         return $app["twig"]->render("homepage.html.twig");
     });
 
-    $app->post("/pingpong", function() use ($app)) {
-        $new_pingponged = new PingPong(($_POST['pingpong']));
-        $new_pingponged->pingPongify();
-        $new_pingponged->save();
-        return $app['twig']->render('homepage.html.twig', array('pingpong'=>PingPonged::getAll()));
-    }
+    $app->post("/pingpong", function() use ($app) {
+        $new_pingponged = new PingPonged();
+        $result = $new_pingponged->pingPongify($_POST['input']);
+        $result = implode($result , " ");
+        return $app['twig']->render('pingpong.html.twig', array('result'=>$result));
+    });
 
     return $app;
 ?>

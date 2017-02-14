@@ -2,13 +2,7 @@
 
     class PingPonged
     {
-        private $input;
-        private $countNumbers =[];
-
-        function __construct($input)
-        {
-            $this->input = $input;
-        }
+        public $countNumbers =[];
 
         function get() {
             if (property_exists($this, $property)) {
@@ -33,7 +27,7 @@
         function pingPongify($input) {
             for($i = 1; $i <=$input; $i++) {
                 if ($i%15 == 0) {
-                    array_push($this->countNumbers, "ping pong");
+                    array_push($this->countNumbers, "ping-pong");
                 } elseif ($i%5 == 0) {
                     array_push($this->countNumbers, "pong");
                 } elseif ($i%3 == 0) {
